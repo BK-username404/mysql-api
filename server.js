@@ -8,10 +8,10 @@ app.use(express.json());
 
 // 🔑 налаштування MySQL (візьми свої дані)
 const db = mysql.createPool({
-  host: "sql7.freesqldatabase.com",
-  user: "sql7796339",
-  password: "bwXkDKVRQV",
-  database: "sql7796339"
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
 
 // 🚀 API для отримання даних
