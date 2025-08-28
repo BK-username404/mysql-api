@@ -17,13 +17,13 @@ const db = mysql.createPool({
 
 // 🚀 API для отримання даних
 app.get("/getdata", (req, res) => {
-  db.query("SELECT * FROM main LIMIT 100", (err, results) => {
-    if (err) {
-      return res.status(500).json({ error: err });
-    }
+  db.query("SELECT * FROM main", (err, results) => {
+    if (err) return res.status(500).json({ error: err });
+    console.log("Rows returned:", results.length); // перевірка
     res.json(results);
   });
 });
+
 
 // 🚀 API для додавання даних
 app.post("/add", (req, res) => {
